@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doctor Blogs</title>
+
+      <!-- Favicon -->
+      <link rel="icon" href="/img/logo_healthy_baby.jpg">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+      <!-- Google Fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+      <!-- Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Pour les icônes -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+      <!-- Lien vers Bootstrap Icons CDN -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+      <!-- CSS Files -->
+      <link rel="stylesheet" href="/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/css/nice-select.css">
+      <link rel="stylesheet" href="/css/font-awesome.min.css">
+      <link rel="stylesheet" href="/css/icofont.css">
+      <link rel="stylesheet" href="/css/slicknav.min.css">
+      <link rel="stylesheet" href="/css/owl-carousel.css">
+      <link rel="stylesheet" href="/css/datepicker.css">
+      <link rel="stylesheet" href="/css/animate.min.css">
+      <link rel="stylesheet" href="/css/magnific-popup.css">
+      <link rel="stylesheet" href="/css/normalize.css">
+      <link rel="stylesheet" href="/css/style.css">
+      <link rel="stylesheet" href="/css/responsive.css">
+</head>
+
+<body>
+
+
+  <div class="page-container">
+  
+    <!-- Preloader -->
+    <div class="preloader">
+      <div class="loader">
+        <div class="loader-outter"></div>
+        <div class="loader-inner"></div>
+  
+        <div class="indicator">
+          <svg width="16px" height="12px">
+            <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+            <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <!-- End Preloader -->
+  
+    <!-- Header Area -->
+		<header class="header">
+			<!-- Topbar -->
+			<div class="topbar">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-6 col-md-5 col-12"></div>
+						<div class="col-lg-6 col-md-7 col-12">
+							<!-- Top Contact -->
+							<ul class="top-contact">
+								<li class="num"><i class="fa fa-phone"></i>+213 562 39 20 55</li>
+								<li class="email"><i class="fa fa-envelope"></i><a
+										href="mailto:support@yourmail.com">mommyandmeclinic@outlook.com</a></li>
+							</ul>
+							<!-- End Top Contact -->
+						</div>
+						<!-- Contenu principal -->
+					</div>
+				</div>
+			</div>
+			<!-- End Topbar -->
+			<!-- Header Inner -->
+			<div class="header-inner">
+				<div class="container">
+					<div class="inner">
+						<div class="row">
+							<div class="col-lg-3 col-md-3 col-12">
+								<!-- Start Logo -->
+								<div class="logo">
+									<a href="/MyApp"
+										class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+										<img src="/img/logo_healthy_baby.jpg" alt="Logo" width="50">
+										<span style="margin-left: 10px;" class="fs-5 ms-3 fw-bold" data-i18n="header.myAccount">My Account</span>
+									</a>
+								</div>
+								<!-- End Logo -->
+								<!-- Mobile Nav -->
+								<div class="mobile-nav"></div>
+								<!-- End Mobile Nav -->
+							</div>
+							<div class="col-lg-7 col-md-9 col-12">
+								<!-- Main Menu -->
+								<div class="main-menu">
+									<nav class="navigation">
+										<ul class="nav menu">
+											<li class="nav-item">
+												<a href="/MyApp" class="nav-link active">
+													<span data-i18n="header.myAppointments">My Appointments</span>
+												</a>
+											</li>
+											<li class="nav-item">
+												<a href="/BookAppoitement" class="nav-link">
+													<span data-i18n="header.bookAppointment">Book Appointment</span>
+												</a>
+											</li>
+											<li><a href="#" data-i18n="header.blogs">Blogs <i class="nav-item"></i></a>
+													<ul class="dropdown">
+														<li><a href="/MyApp/General" data-i18n="blogs.general">general</a></li>
+														<li><a href="/MyApp/Nutrition"  data-i18n="blogs.nutrition">nutrition</a></li>
+														<li><a href="/MyApp/Mental-health" data-i18n="blogs.mental">mental-health</a></li>
+														<li><a href="/MyApp/Pediatrics" data-i18n="blogs.pediatrics">pediatrics</a></li>
+														<li><a href="/MyApp/Breastfeeding" data-i18n="blogs.breastfeeding">breastfeeding</a></li>
+														<li><a href="/MyApp/Parenting-advice" data-i18n="blogs.parenting">parenting advice</a></li>
+														<li><a href="/MyApp/Others" data-i18n="blogs.others">others</a></li>
+													</ul>
+											</li>
+
+											<li class="nav-item">
+												<a href="/ContactAdminFromParent" class="nav-link">
+													<span class="" data-i18n="header.contact">Contact Us</span>
+												</a>
+											</li>
+											<li><a class="" href="#" data-i18n="header.language">Language</a>
+												<ul class="dropdown">
+														<li><a href="#" class="lang-select" data-lang="en">🇬🇧 English</a></li>
+														<li><a href="#" class="lang-select" data-lang="ar">🇸🇦 العربية</a></li>
+												</ul>
+											</li>
+	
+										</ul>
+									</nav>
+								</div>
+								<!--/ End Main Menu -->
+							</div>
+							<div class="col-lg-2 col-12 d-flex justify-content-end align-items-center">
+								<form method="post" action="/logout" class="m-0">
+									<button style="background-color: red;" type="submit" class="btn" data-i18n="header.logout">
+										Logout
+									</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--/ End Header Inner -->
+		</header>
+		<!-- End Header Area -->
+
+
+    <main class="content-wrap">
+    
+      <!-- Breadcrumbs -->
+      <div class="breadcrumbs overlay">
+        <div class="container">
+          <div class="bread-inner">
+            <div class="row">
+              <div class="col-12">
+                <h2 data-i18n="breadcrumbs.blog_details.title">Blog details</h2>
+                <ul class="bread-list">
+                  <li><a href="/home" data-i18n="breadcrumbs.home">Home</a></li>
+                  <li><i class="icofont-simple-right"></i></li>
+                  <li class="active" data-i18n="breadcrumbs.blog_details.title">Blog details</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Breadcrumbs -->
+    
+     
+      <% if (blog) { %>
+        <!-- ====== Blog Detail Section Start ====== -->
+        <section class="blog-detail section py-5">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-10">
+      
+                <!-- Blog Title -->
+                <h1 class="dynamic-text mb-3 text-center">
+                  <%= blog.title.replace(/\n/g, '<br>') %>
+                </h1>
+      
+                <!-- Metadata -->
+                <p class="dynamic-text text-center text-muted mb-4">
+                  <i class="bi bi-calendar-event"></i>
+                  <%= new Date(blog.createdAt).toLocaleDateString('en-GB') %> &nbsp;|&nbsp;
+                    <i class="bi bi-person-circle"></i>
+                    <%= blog.author.replace(/\n/g, '<br>') %> &nbsp;|&nbsp;
+                      <span class="badge bg-secondary text-capitalize">
+                        <%= blog.category.replace('-', ' ' ) %>
+                      </span>
+                </p>
+      
+                <!-- Blog Image -->
+                <div class="mb-4 text-center">
+                  <img src="<%= '/uploads/' + blog.image %>" alt="Blog Image" class="img-fluid rounded"
+                    style="max-height: 500px; object-fit: cover;">
+                </div>
+      
+                <!-- Blog Content -->
+                <div class="dynamic-text blog-content fw-bold fs-5" style="line-height: 1.8; white-space: pre-line;">
+                  <%= blog.content %>
+                </div>
+      
+                <!-- Interactive Buttons -->
+                <div class="text-center mt-5 d-flex justify-content-center gap-3">
+                  <button class="btn btn-outline-primary d-flex align-items-center gap-1" data-bs-toggle="modal"
+                    data-bs-target="#commentModal">
+                    <i class="bi bi-chat-left-text"></i> <span data-i18n="blogDetail.commentsTitle">Comments</span> (<%= totalComments %>)
+                  </button>
+                </div>
+      
+                <!-- Comments Section -->
+                <div class="mt-5">
+                  <h4 class="mb-4 text-primary">
+                    <i class="bi bi-chat-dots-fill me-2"></i> <span data-i18n="blogDetail.commentsTitle">Comments</span> (<%= totalComments %>)
+                  </h4>
+      
+      
+                  <% if (comments && comments.length> 0) { %>
+                    <div class="list-group">
+                      <% comments.forEach(comment=> { %>
+                        <div class="list-group-item py-3 px-4 mb-3 shadow-sm rounded">
+                          <% if (comment.user) { %>
+                            <p class="fw-semibold d-flex align-items-center gap-1 mb-1">
+                              <% if (comment.user.role==='doctor' ) { %>
+                                <i class="bi bi-person-badge-fill text-primary"></i>
+                                <% } else if (comment.user.role==='parent' ) { %>
+                                  <i class="bi bi-person-fill text-success"></i>
+                                  <% } else { %>
+                                    <i class="bi bi-person text-muted"></i>
+                                    <% } %>
+                                      <%= comment.user.full_name %>
+                            </p>
+                            <% } else { %>
+                              <p class="text-muted"><i class="bi bi-person-x-fill me-1"></i>
+                                <em data-i18n="blogDetail.unknownAuthor">Unknown author</em>
+                              </p>
+                              <% } %>
+
+                          <p class="mb-2 text-dark">
+                            <i class="bi bi-quote me-1 text-secondary"></i>
+                            <span style="line-height: 1.8; white-space: pre-line;"><%= comment.text %></span>
+                          </p>
+      
+                          <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">
+                              <i class="bi bi-calendar-event me-1"></i>
+                              <%= new Date(comment.createdAt).toLocaleString() %>
+                            </small>
+
+                            <!-- Icône de suppression du commentaire seulement pour le user qui a posté comment-->
+
+                           <% if (comment.user && comment.user._id && comment.user._id.toString() === currentUser.toString()) { %>
+                              <a href="#" class="position-absolute top-0 end-0 m-2 text-danger" data-bs-toggle="modal"
+                                data-bs-target="#deleteCommentModal<%= comment._id %>">
+                                <i class="bi bi-trash-fill fs-4"></i>
+                              </a>
+                            <% } %>
+                          </div>
+
+                          <!-- Modal de confirmation pour la suppression du commentaire -->
+                          <div class="modal fade" id="deleteCommentModal<%= comment._id %>" tabindex="-1"
+                            aria-labelledby="deleteCommentModalLabel<%= comment._id %>" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                              <form method="POST" action="/MyApp/blog/<%= blog._id %>/comment/<%= comment._id %>/delete">
+                                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                <input type="hidden" name="lang" class="lang-field">
+                                <div class="modal-content">
+                                  <div class="modal-header bg-danger text-white">
+                                    <h5 class="modal-title text-white" id="deleteCommentModalLabel<%= comment._id %>">
+                                      <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                                      <span data-i18n="modal.delete_comment.title">Confirm Deletion</span>
+                                    </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body" data-i18n="modal.delete_comment.body">
+                                    Delete this comment? This action cannot be undone.
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button style="background-color: #6b6b6b; color: #ffffff; border: none;" type="button" class="btn" data-bs-dismiss="modal" data-i18n="modal.delete_comment.cancel">Cancel</button>
+                                    <button style="background-color: #df0202; color: white; border: none;" type="submit" class="btn" data-i18n="modal.delete_comment.confirm">Yes, Delete</button>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+      
+                              <!-- Répondre avec effet UX -->
+                              <div class="mt-3">
+                                <a class="btn btn-sm btn-outline-primary d-inline-flex align-items-center gap-1" data-bs-toggle="collapse"
+                                  href="#replyForm<%= comment._id %>" role="button" aria-expanded="false" aria-controls="replyForm<%= comment._id %>">
+                                  <i class="bi bi-reply-fill"></i> 
+                                  <span data-i18n="form.reply.label">Reply</span>
+                                  <% if (comment.replies?.length> 0) { %>
+                                    (<%= comment.replies.length %>)
+                                      <% } %>
+                                </a>
+      
+                              </div>
+      
+                              <!-- Formulaire de réponse collapsible -->
+                              <div class="collapse mt-3" id="replyForm<%= comment._id %>">
+                                <div class="card card-body border-0 shadow-sm">
+                                  <form method="POST" action="/MyApp/blog/<%= blog._id %>/comment/<%= comment._id %>/reply">
+                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                    <input type="hidden" name="lang" class="lang-field">
+                                    <div class="mb-2">
+                                      <textarea name="reply" class="form-control" rows="2" dir="auto" required></textarea>
+                                    </div>
+                                    <div class="text-end">
+                                      <button type="submit" class="btn btn-primary btn-sm">
+                                        <i class="bi bi-send"></i> 
+                                        <span data-i18n="form.reply.send">Send</span>
+                                      </button>
+                                    </div>
+                                  </form>
+                                </div>
+                              </div>
+      
+            
+                              <!-- Affichage des sous-commentaires -->
+                              <% if (comment.replies && comment.replies.length> 0) { %>
+                                <div class="mt-3 ps-3 border-start">
+                                  <% comment.replies.forEach(reply=> { %>
+                                    <div class="mb-3 border rounded p-3 position-relative bg-light">
+                                        <!-- Contenu de la réponse -->
+                                        <% if (reply.user) { %>
+                                          <p class="fw-semibold d-flex align-items-center gap-1 mb-1">
+                                            <% if (reply.user.role==='doctor' ) { %>
+                                              <i class="bi bi-person-badge-fill text-primary me-1"></i>
+                                              <% } else if (reply.user.role==='parent' ) { %>
+                                                <i class="bi bi-person-fill text-success me-1"></i>
+                                                <% } else { %>
+                                                  <i class="bi bi-person text-muted me-1"></i>
+                                                  <% } %>
+                                                    <%= reply.user.full_name %>
+                                          </p>
+                                          <% } else { %>
+                                            <p><i class="bi bi-person-x-fill text-muted me-1"></i>
+                                              <em data-i18n="blogDetail.unknownAuthor">Unknown author
+                                              </em>
+                                            </p>
+                                            <% } %>
+
+                                      <p class="mb-1 text-dark">
+                                        <i class="bi bi-arrow-return-right text-secondary me-1"></i>
+                                        <span style="line-height: 1.8; white-space: pre-line;"><%= reply.text %></span>
+                                      </p>
+                                      <small class="text-muted d-block mb-2">
+                                        <i class="bi bi-calendar-event me-1"></i>
+                                        <%= new Date(reply.createdAt).toLocaleString() %>
+                                      </small>
+                              
+                                      <!-- Icône de suppression de sous commentaire seulement pour le user qui a posté reply -->
+                                      <% if (reply.user && reply.user._id && reply.user._id.toString() === currentUser.toString()) { %>
+                                        <a href="#" class="position-absolute top-0 end-0 m-2 text-danger" data-bs-toggle="modal"
+                                          data-bs-target="#deleteReplyModal<%= reply._id %>">
+                                          <i class="bi bi-trash-fill fs-4"></i>
+                                        </a>
+                                      <% } %>
+
+                              
+                                      <!-- Modal de confirmation pour la suppression de la réponse -->
+                                      <div class="modal fade" id="deleteReplyModal<%= reply._id %>" tabindex="-1"
+                                        aria-labelledby="deleteReplyModalLabel<%= reply._id %>" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                          <form method="POST" action="/MyApp/blog/<%= blog._id %>/comment/<%= comment._id %>/reply/<%= reply._id %>/delete">
+                                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                            <input type="hidden" name="lang" class="lang-field">
+                                            <div class="modal-content">
+                                              <div class="modal-header bg-danger text-white">
+                                                <h5 class="modal-title text-white" id="deleteReplyModalLabel<%= reply._id %>">
+                                                  <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                                                  <span data-i18n="modal.delete_reply.title">Confirm Deletion</span>
+                                                </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" data-i18n="[aria-label]modal.common.close"></button>
+                                              </div>
+                                              <div class="modal-body" data-i18n="modal.delete_reply.message">
+                                                Delete this reply? This action cannot be undone.
+                                              </div>
+
+                                              <div class="modal-footer">
+                                                <button style="background-color: #6b6b6b; color: #ffffff; border: none;" type="button" class="btn" data-bs-dismiss="modal" data-i18n="modal.delete_reply.cancel">Cancel</button>
+                                                <button style="background-color: #df0202; color: white; border: none;" type="submit" class="btn" data-i18n="modal.delete_reply.confirm">Yes, Delete</button>
+                                              </div>
+                                            </div>
+                                          </form>
+                                        </div>
+                                      </div>
+                              
+                                    </div>
+                                    <% }) %>
+                                </div>
+                              <% } %>
+
+            
+                            </div>
+                          <% }) %>
+                        </div>
+                      <% } else { %>
+                        <p class="text-muted" data-i18n="blogDetail.noComments">No comments yet.</p>
+                      <% } %>
+                    </div>
+            
+                  </div>
+                </div>
+              </div>
+        </section>
+        <!-- ====== End Blog Detail Section ====== -->
+            
+        <!-- Modal Commentaire Principal -->
+        <div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <form method="POST" action="/MyApp/blog/<%= blog._id %>/comment">
+                  <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                  <input type="hidden" name="lang" class="lang-field">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="commentModalLabel" data-i18n="modal.add_comment.title">Add a comment</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                    </div>
+                    <div class="modal-body">
+                      <textarea name="comment" class="form-control" rows="4" dir="auto" required></textarea>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="submit" class="btn btn-primary" data-i18n="modal.add_comment.submit">send</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+        </div>
+        <!--End Modal Commentaire Principal -->
+      
+      
+      <% } else { %>
+          <section class="blog-detail section py-5">
+            <div class="container">
+              <div class="alert alert-danger text-center" role="alert">
+                <strong data-i18n="blogDetail.errorTitle">Error:</strong>
+                <span data-i18n="blogDetail.errorMessage">Unable to display the blog details. Please try again later.</span>
+              </div>
+            </div>
+          </section>
+      <% } %>
+
+
+    
+    </main>
+  
+    <!-- Footer Area -->
+		<footer id="footer" class="footer">
+			<!-- Copyright -->
+			<div class="copyright">
+				<div class="container">
+					<div class="row align-items-center">
+						<!-- Copyright Text -->
+						<div class="col-md-6 text-md-start text-center">
+							<div class="copyright-content">
+								<p data-i18n="footer.copyrightText">
+									© Copyright 2025 | All Rights Reserved by
+									<a href="#" target="_blank">Mommy&Me.com</a>
+								</p>
+							</div>
+						</div>
+						<!--/ End Copyright -->
+		
+						<!-- Social Media Icons -->
+						<div class="col-md-6 text-md-end text-center">
+							<div class="social-icons">
+								<a href="https://web.facebook.com/dr.ouddah" target="_blank"
+									class="text-white fs-4 p-2 btn btn-outline-light">
+									<i style="font-size: 30px;" class="icofont-facebook display-4"></i>
+								</a>
+								<a href="https://www.instagram.com/dr.ouddah" target="_blank"
+									class="text-white fs-4 p-2 btn btn-outline-light">
+									<i style="font-size: 30px;" class="icofont-instagram display-4"></i>
+								</a>
+								<a href="https://www.linkedin.com/in/meriem-ouddah-88b097213/" target="_blank"
+									class="text-white fs-4 p-2 btn btn-outline-light">
+									<i style="font-size: 30px;" class="icofont-linkedin"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!--End Footer Area -->
+  
+  
+  </div>
+
+      <!-- JS Scripts -->
+      <script src="/js/jquery.min.js"></script>
+      <script src="/js/jquery-migrate-3.0.0.js"></script>
+      <script src="/js/jquery-ui.min.js"></script>
+      <script src="/js/easing.js"></script>
+      <script src="/js/colors.js"></script>
+      <script src="/js/popper.min.js"></script>
+      <script src="/js/bootstrap-datepicker.js"></script>
+      <script src="/js/jquery.nav.js"></script>
+      <script src="/js/slicknav.min.js"></script>
+      <script src="/js/jquery.scrollUp.min.js"></script>
+      <script src="/js/niceselect.js"></script>
+      <script src="/js/tilt.jquery.min.js"></script>
+      <script src="/js/owl-carousel.js"></script>
+      <script src="/js/jquery.counterup.min.js"></script>
+      <script src="/js/steller.js"></script>
+      <script src="/js/wow.min.js"></script>
+      <script src="/js/jquery.magnific-popup.min.js"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+      <script src="/js/bootstrap.min.js"></script>
+      <script src="/js/main.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    
+
+      <!-- Script pour gérer le focus lors de la fermeture de la modale d'ajoute de commentaires
+       (enlever l'erreur qui apprait aprés la fermuture de fenetre d'ajoute de commentaire) -->
+      <script nonce="<%= nonce %>">
+        document.addEventListener("DOMContentLoaded", function () {
+          const commentModal = document.getElementById("commentModal");
+          const closeButton = commentModal.querySelector(".btn-close");
+          const openModalBtn = document.querySelector('[data-bs-target="#commentModal"]');
+
+          // 1. Avant que la modale ne soit cachée : enlever le focus de l'élément actif
+          commentModal.addEventListener("hide.bs.modal", function () {
+            if (document.activeElement === closeButton) {
+              document.activeElement.blur(); // ou document.body.focus();
+            }
+          });
+
+          // 2. Après que la modale soit complètement fermée : rendre le focus au bouton d'ouverture
+          commentModal.addEventListener("hidden.bs.modal", function () {
+            if (openModalBtn) {
+              openModalBtn.focus();
+            }
+          });
+        });
+      </script>
+
+
+      <!-- Script pour gérer le focus lors de la fermeture de la modale de supprimer commentaires
+       (enlever l'erreur qui apprait aprés la fermuture de fenetre de supprimer commentaire) -->
+
+      <script nonce="<%= nonce %>">
+        document.addEventListener("DOMContentLoaded", function () {
+          // Sélectionne toutes les modales dont l'id commence par "deleteCommentModal" ou "deleteReplyModal"
+          const modalSelectors = ['[id^="deleteCommentModal"]', '[id^="deleteReplyModal"]'];
+          const modals = document.querySelectorAll(modalSelectors.join(','));
+
+          modals.forEach(modal => {
+            // Trouve le bouton qui ouvre la modale
+            const openModalBtn = document.querySelector(`[data-bs-target="#${modal.id}"]`);
+
+            // Avant fermeture : retirer le focus de n'importe quel élément actif dans la modale
+            modal.addEventListener("hide.bs.modal", () => {
+              if (modal.contains(document.activeElement)) {
+                document.activeElement.blur();
+              }
+            });
+
+            // Après fermeture complète : remettre le focus au bouton qui a ouvert la modale
+            modal.addEventListener("hidden.bs.modal", () => {
+              if (openModalBtn) {
+                openModalBtn.focus();
+              }
+            });
+          });
+        });
+      </script>
+
+      <!-- script qui détecet automatiquement la langue récupérer depuis la bd et faire l'alignemet du texte 
+      selon la langue -->
+      <script nonce="<%= nonce %>">
+        document.addEventListener('DOMContentLoaded', () => {
+          function isArabic(text) {
+            // Vérifie si le texte contient des caractères arabes Unicode
+            return /[\u0600-\u06FF]/.test(text);
+          }
+
+          document.querySelectorAll('.dynamic-text').forEach(el => {
+            const text = el.textContent.trim();
+            if (isArabic(text)) {
+              el.style.direction = 'rtl';
+              el.style.textAlign = 'right';
+              el.lang = 'ar';
+              el.style.fontFamily = "'Arial', 'Tahoma', sans-serif";
+            } else {
+              el.style.direction = 'ltr';
+              el.style.textAlign = 'left';
+              el.lang = 'fr'; // ou autre langue par défaut
+            }
+          });
+        });
+      </script>
+
+
+      <!-- Script de détection et d’application de la langue (au chargement) -->
+      <script nonce="<%= nonce %>">
+        document.addEventListener("DOMContentLoaded", function () {
+          const lang = localStorage.getItem("lang") || "en";
+
+          // Appliquer les traductions
+          function applyI18n(translations) {
+            // Traduire les innerText / innerHTML
+            document.querySelectorAll("[data-i18n]").forEach(el => {
+              const key = el.getAttribute("data-i18n");
+              if (translations[key]) el.innerHTML = translations[key];
+            });
+
+            // Traduire les placeholders
+            document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+              const key = el.getAttribute("data-i18n-placeholder");
+              if (translations[key]) el.setAttribute("placeholder", translations[key]);
+            });
+          }
+
+          // Charger les traductions
+          fetch(`/lang/${lang}.json`)
+            .then(res => res.json())
+            .then(translations => {
+              applyI18n(translations);
+            })
+            .catch(err => console.error("Erreur traduction :", err));
+        });
+      </script>
+
+      <!-- script pour sctocker la langue dans le local storage lorsque le user clique sur la langue(mobile+desktop+tablette) -->
+      <script nonce="<%= nonce %>">
+        document.addEventListener('DOMContentLoaded', function () {
+          document.addEventListener('click', function (e) {
+            const target = e.target.closest('.lang-select');
+            if (target) {
+              e.preventDefault();
+              const selectedLang = target.dataset.lang;
+              if (selectedLang) {
+                localStorage.setItem('lang', selectedLang);
+                location.reload(); // Recharge la page pour appliquer la langue
+              }
+            }
+          });
+        });
+      </script>
+
+
+      <!-- script pour remplir le champ lang (input lang dans le form) au chargement de la page -->
+      <script nonce="<%= nonce %>">
+        document.addEventListener('DOMContentLoaded', function () {
+          const storedLang = localStorage.getItem('lang') || 'en';
+
+          // Applique la langue à tous les inputs cachés avec la classe lang-field
+          document.querySelectorAll('input.lang-field').forEach(input => {
+            input.value = storedLang;
+          });
+        });
+      </script>
+
+
+
+
+
+
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      
+      <% if (message) { %>
+        <script nonce="<%= nonce %>">
+          Swal.fire({
+            icon: "<%= messageType === 'success' ? 'success' : 'error' %>",
+            title: "<%= messageType === 'success' ? 'Success' : 'Oops...' %>",
+            text: "<%= message %>",
+            confirmButtonText: 'OK'
+          });
+        </script>
+        <% } %>
+
+
+</body>
+
+</html>

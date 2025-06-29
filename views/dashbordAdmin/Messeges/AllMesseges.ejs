@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Title -->
+    <title>Mommy & Me - Caring for Moms and Children</title>
+		
+    <!-- Favicon -->
+    <link rel="icon" href="img/logo_healthy_baby.jpg">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styleAdmin.css">
+    <!-- Medipro CSS -->
+    <link rel="stylesheet" href="css/normalize.css">
+</head>
+
+<body>
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-outter"></div>
+            <div class="loader-inner"></div>
+
+            <div class="indicator">
+                <svg width="16px" height="12px">
+                    <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+                    <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <!-- End Preloader -->
+
+
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar d-none d-md-block p-3">
+            <div class="text-center mb-4">
+                <img src="img/logo_healthy_baby.jpg" alt="Logo" class="rounded-circle" width="80">
+                <h5 class="mt-2 text-white">Admin Panel</h5>
+            </div>
+
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link text-white d-flex justify-content-between align-items-center"
+                        href="#userSubmenuDesktop" id="toggleUsersDesktop">
+                        <span><i class="bi bi-people"></i> Accounts</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </a>
+                    <div class="collapse ms-3" id="userSubmenuDesktop">
+                        <ul class="list-unstyled">
+                            <li><a class="nav-link text-white" href="/ActiveAccounts"><i
+                                        class="bi bi-check-circle"></i> Active Accounts</a></li>
+                            <li><a class="nav-link text-white" href="/PendingAccounts"><i
+                                        class="bi bi-hourglass-split"></i> Pending Accounts</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white d-flex justify-content-between align-items-center"
+                        href="#BlogsSubmenuDesktop" id="toggleBlogsDesktop">
+                        <span><i class="bi bi-newspaper"></i> Blogs</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </a>
+                    <div class="collapse ms-3" id="BlogsSubmenuDesktop">
+                        <ul class="list-unstyled">
+                            <li><a class="nav-link text-white" href="/ActiveBlogs"><i
+                                        class="bi bi-check-circle"></i> Active Blogs</a></li>
+                            <li><a class="nav-link text-white" href="/PendingBlogs"><i
+                                        class="bi bi-hourglass-split"></i> Pending Blogs</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white d-flex justify-content-between align-items-center"
+                        href="#TestimonialsSubmenuDesktop" id="toggleTestimonialsDesktop">
+                        <span><i class="bi bi-chat-left-quote"></i> Testimonials</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </a>
+                    <div class="collapse ms-3" id="TestimonialsSubmenuDesktop">
+                        <ul class="list-unstyled">
+                            <li><a class="nav-link text-white" href="/ActiveTestimonials"><i
+                                        class="bi bi-check-circle"></i> Active Testimonials</a></li>
+                            <li><a class="nav-link text-white" href="/PendingTestimonials"><i
+                                        class="bi bi-hourglass-split"></i> Pending Testimonials</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+
+                <!--Nouvelle section : Contact Messages -->
+                <li class="nav-item">
+                    <a class="nav-link text-white d-flex justify-content-between align-items-center" href="/ContactMessages">
+                        <span><i class="bi bi-envelope-paper"></i> Contact Messages</span>
+                    </a>
+                </li>
+
+                <form method="POST" action="/logout">
+                    <button class="nav-link text-danger border-0 bg-transparent" type="submit">
+                        <i class="bi bi-box-arrow-right"></i> Logout
+                    </button>
+                </form>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="content-area">
+           <!-- Mobile Menu Button -->
+            <button class="btn btn-outline-primary d-md-none mb-3" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#sidebar">
+                <i class="bi bi-list"></i> Menu
+            </button>
+        
+            <!-- Page Title -->
+            <div class="mb-4">
+                <h2 class="fw-bold">Welcome to Admin Dashboard</h2>
+                <p class="text-muted">Manage your system here...</p>
+            </div>
+        
+            <!-- Filter Form -->
+            <form method="POST" action="/ContactMessages" class="row g-3 align-items-end mb-4 bg-light p-3 rounded shadow-sm">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <div class="col-md-4">
+                    <label for="startDate" class="form-label">Start Date</label>
+                    <input type="date" id="startDate" name="startDate" class="form-control" value="<%= startDate || '' %>">
+                </div>
+        
+                <div class="col-md-4">
+                    <label for="endDate" class="form-label">End Date</label>
+                    <input type="date" id="endDate" name="endDate" class="form-control" value="<%= endDate || '' %>">
+                </div>
+        
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-funnel-fill"></i> Filter
+                    </button>
+                </div>
+                <div class="col-auto">
+                    <a href="/ContactMessages" class="btn btn-outline-secondary">
+                        <i class="bi bi-x-circle"></i> Reset
+                    </a>
+                </div>
+            </form>
+
+            <!-- Contact Messages Table -->
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0">Contact Messages</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle" id="dataTable">
+                            <thead class="table-light">
+                                <tr>
+                                    <th class="w-25">#</th>
+                                    <th class="w-25">Name</th>
+                                    <th class="w-25">Phone</th>
+                                    <th class="w-25">Date</th>
+                                    <th class="text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% contacts.forEach((contact, index)=> { %>
+                                    <tr data-contact='<%= JSON.stringify(contact).replace(/'/g, "&#39;") %>'>
+                                        <td class="w-25 text-truncate">
+                                            <%= index + 1 %>
+                                        </td>
+                                        <td class="w-25 text-truncate dynamic-text">
+                                            <%= contact.name %>
+                                        </td>
+                                        <td class="w-25 text-truncate">
+                                            <%= contact.phone %>
+                                        </td>
+                                        <td class="w-25 text-truncate">
+                                            <%= new Date(contact.createdAt).toLocaleDateString("en-GB") %>
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="d-flex justify-content-center gap-3">
+                                                <!-- View Button -->
+                                                <button class="btn btn-sm text-white view-details-btn"
+                                                    style="background-color: #4ea4b5;" title="View" data-bs-toggle="modal"
+                                                    data-bs-target="#contactDetailsModal">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+            
+                                               <!-- Bouton Delete -->
+                                                <button class="btn btn-sm text-white btn-delete" style="background-color: red;" title="Delete">
+                                                    <i class="bi bi-x-circle"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <% }); %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Contact Details Modal -->
+            <div class="modal fade" id="contactDetailsModal" tabindex="-1" aria-labelledby="contactDetailsModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Contact Message Details</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="contactDetails"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Delete Confirmation Modal -->
+            <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Confirm Deletion</h5>
+                            <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure you want to delete this contact?
+                            <div id="deleteErrorMessage" class="alert alert-danger mt-3 d-none"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button style="background-color: #6b6b6b; color: #ffffff; border: none;" class="btn"
+                                data-bs-dismiss="modal">Cancel</button>
+                            <button style="background-color: #df0202; color: white; border: none;" class="btn"
+                                id="confirmDeleteBtn">Yes, Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <!-- Sidebar mobile (Offcanvas) -->
+    <div class="offcanvas offcanvas-start bg-dark text-white" tabindex="-1" id="sidebar">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title text-white">Admin Panel</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link text-white d-flex justify-content-between align-items-center"
+                        href="#userSubmenuMobile" id="toggleUsersMobile">
+                        <span><i class="bi bi-people"></i> Accounts</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </a>
+                    <div class="collapse ms-3" id="userSubmenuMobile">
+                        <ul class="list-unstyled">
+                            <li><a class="nav-link text-white" href="/ActiveAccounts"><i
+                                        class="bi bi-check-circle"></i> Active Accounts</a></li>
+                            <li><a class="nav-link text-white" href="/PendingAccounts"><i
+                                        class="bi bi-hourglass-split"></i> Pending Accounts</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white d-flex justify-content-between align-items-center"
+                        href="#BlogsSubmenuMobile" id="toggleBlogsMobile">
+                        <span><i class="bi bi-newspaper"></i> Blogs</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </a>
+                    <div class="collapse ms-3" id="BlogsSubmenuMobile">
+                        <ul class="list-unstyled">
+                            <li><a class="nav-link text-white" href="/ActiveBlogs"><i
+                                        class="bi bi-check-circle"></i> Active Blogs</a></li>
+                            <li><a class="nav-link text-white" href="/PendingBlogs"><i
+                                        class="bi bi-hourglass-split"></i> Pending Blogs</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link text-white d-flex justify-content-between align-items-center"
+                        href="#TestimonialsSubmenuMobile" id="toggleTestimonialsMobile">
+                        <span><i class="bi bi-chat-left-quote"></i> Testimonials</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </a>
+                    <div class="collapse ms-3" id="TestimonialsSubmenuMobile">
+                        <ul class="list-unstyled">
+                            <li><a class="nav-link text-white" href="/ActiveTestimonials"><i
+                                        class="bi bi-check-circle"></i> Active Testimonials</a></li>
+                            <li><a class="nav-link text-white" href="/PendingTestimonials"><i
+                                        class="bi bi-hourglass-split"></i> Pending Testimonials</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!--Nouvelle section : Contact Messages -->
+                <li class="nav-item">
+                    <a class="nav-link text-white d-flex justify-content-between align-items-center" href="/ContactMessages">
+                        <span><i class="bi bi-envelope-paper"></i> Contact Messages</span>
+                    </a>
+                </li>
+
+                
+                <form method="POST" action="/logout">
+                    <button class="nav-link text-danger border-0 bg-transparent" type="submit">
+                        <i class="bi bi-box-arrow-right"></i> Logout
+                    </button>
+                </form>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
+
+    <!-- Script pour afficher le contenu du contact dans le modal -->
+    <script nonce="<%= nonce %>">
+        document.addEventListener('DOMContentLoaded', () => {
+            const detailButtons = document.querySelectorAll('.view-details-btn');
+
+            // Fonction pour détecter la présence de texte arabe
+            function containsArabic(text) {
+                return /[\u0600-\u06FF]/.test(text);
+            }
+
+            detailButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const row = button.closest('tr');
+                    const contact = JSON.parse(row.getAttribute('data-contact'));
+
+                    // Formatage de la date complète avec heure, minute, seconde
+                    const contactDate = new Date(contact.createdAt).toLocaleString('en-GB', {
+                        day: '2-digit',
+                        month: '2-digit',
+                        year: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        second: '2-digit'
+                    });
+
+                    const isArabic =
+                        containsArabic(contact.name) ||
+                        containsArabic(contact.subject) ||
+                        containsArabic(contact.message);
+
+                    const direction = isArabic ? 'rtl' : 'ltr';
+                    const align = isArabic ? 'right' : 'left';
+
+                    const contactDetailsHTML = `
+                        <div class="dynamic-text" style="text-align: ${align}; direction: ${direction}; line-height: 1.8; white-space: pre-line;">
+                        <p><strong>${isArabic ? 'معرّف الاتصال' : 'Contact ID'}:</strong> ${contact._id}</p>
+                        <p><strong>${isArabic ? 'الاسم' : 'Name'}:</strong> ${contact.name}</p>
+                        <p><strong>${isArabic ? 'البريد الإلكتروني' : 'Email'}:</strong> ${contact.email}</p>
+                        <p><strong>${isArabic ? 'الهاتف' : 'Phone'}:</strong> ${contact.phone}</p>
+                        <p><strong>${isArabic ? 'الموضوع' : 'Subject'}:</strong> ${contact.subject}</p>
+                        <p><strong>${isArabic ? 'تاريخ الإنشاء' : 'Created On'}:</strong> ${contactDate}</p>
+                        <p><strong>${isArabic ? 'الرسالة' : 'Message'}:</strong></p>
+                        <p>${contact.message || (isArabic ? 'لا توجد رسالة.' : 'No message available.')}</p>
+                        </div>
+                    `;
+
+                    document.getElementById('contactDetails').innerHTML = contactDetailsHTML;
+                });
+            });
+        });
+    </script>
+
+
+
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+
+    <!-- Initialisation De DataTables JS -->
+    <script nonce="<%= nonce %>">
+        $(document).ready(function () {
+            var table = $('#dataTable').DataTable({
+                paging: true,
+                pagingType: "full_numbers",
+                lengthMenu: [[10, 25, 50, 100], [10, 25, 50, 100]],
+                searching: true,
+                ordering: true,
+                info: true,
+                language: {
+                    lengthMenu: "Showing _MENU_ entries",
+                    search: "Search:",
+                    paginate: {
+                        first: "First",
+                        last: "Last",
+                        next: ">",
+                        previous: "<"
+                    },
+                    info: "Showing _START_ to _END_ of _TOTAL_ entries"
+                }
+            });
+
+            // Appliquer les styles en ligne avec JS uniquement
+            const wrapper = $('.dataTables_wrapper');
+
+            const lengthControl = wrapper.find('.dataTables_length select');
+            const filterControl = wrapper.find('.dataTables_filter');
+            const inputsearch = wrapper.find('.dataTables_filter input');
+
+            // Mettre en ligne les deux éléments sans les déplacer
+            wrapper.find('.dataTables_length, .dataTables_filter').css({
+                display: 'inline-block',
+                verticalAlign: 'middle',
+                margin: '10px 0'
+            });
+
+            // Aligner la barre de recherche à droite
+            filterControl.css({
+                float: 'right',
+            });
+
+            inputsearch.css({
+                border: "1px solid black"
+            })
+
+            // 👉 Mettre "Search:" à côté de l'input
+            filterControl.find('label').css({
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                marginBottom: '0',
+                marginLeft: "2px",
+            });
+
+            //Appliquer un style sur le selct des entrées
+            lengthControl.css({
+                width: '100px',
+                padding: '5px',
+                borderRadius: '5px',
+                border: '1px solid #ccc',
+                display: "inline-block"
+            });
+
+
+            // Appliquer le style pagination
+            function stylePagination() {
+                let pagination = document.querySelector('.dataTables_paginate');
+                if (pagination) {
+                    pagination.style.display = 'flex';
+                    pagination.style.alignItems = 'center';
+                    pagination.style.justifyContent = 'flex-end';
+                    pagination.style.gap = '5px';
+                    pagination.style.borderRadius = '5px';
+                    pagination.style.backgroundColor = '#f8f9fa';
+                    pagination.style.border = '0px';
+                }
+
+                document.querySelectorAll('.paginate_button').forEach(button => {
+                    button.style.display = 'inline-block';
+                    button.style.color = '#333';
+                    button.style.textDecoration = 'none';
+                    button.style.border = '0px solid #ddd';
+                    button.style.borderRadius = '3px';
+                    button.style.cursor = 'pointer';
+                    button.style.backgroundColor = '#fff';
+
+                    button.addEventListener('mouseover', () => {
+                        button.style.backgroundColor = '#e9ecef';
+                    });
+                    button.addEventListener('mouseout', () => {
+                        button.style.backgroundColor = '#fff';
+                    });
+
+                    if (button.classList.contains('current')) {
+                        button.style.backgroundColor = '#6c63ff';
+                        button.style.color = '#fff';
+                        button.style.fontWeight = 'bold';
+                    }
+                });
+            }
+
+            stylePagination();
+
+            table.on('draw.dt', function () {
+                stylePagination();
+            });
+
+            // Synchronisation externe
+            $('#entries').on('change', function () {
+                table.page.len($(this).val()).draw();
+            });
+
+            $('#searchInput').on('keyup', function () {
+                table.search($(this).val()).draw();
+            });
+        });
+    </script>
+
+
+
+    <!-- script pour afficher la sous liste de Accounts (cas Desktop) -->
+    <script nonce="<%= nonce %>">
+        document.addEventListener('DOMContentLoaded', function () {
+            const desktopLink = document.getElementById('toggleUsersDesktop');
+            const desktopSubmenu = document.getElementById('userSubmenuDesktop');
+
+            desktopLink.addEventListener('click', function (e) {
+                e.preventDefault();
+                const isShown = desktopSubmenu.classList.contains('show');
+                const collapse = new bootstrap.Collapse(desktopSubmenu, {
+                    toggle: false
+                });
+
+                if (isShown) {
+                    collapse.hide();
+                } else {
+                    collapse.show();
+                }
+            });
+        });
+    </script>
+
+
+
+
+    <!-- script pour afficher la sous liste de Accounts (cas Mobile) -->
+    <script nonce="<%= nonce %>">
+        document.addEventListener('DOMContentLoaded', function () {
+            function initMobileMenuToggle() {
+                const isMobile = window.matchMedia("(max-width: 768px)").matches;
+                if (!isMobile) return;
+
+                const mobileLink = document.getElementById('toggleUsersMobile');
+                const mobileSubmenu = document.getElementById('userSubmenuMobile');
+
+                // Empêche de ré-attacher plusieurs fois l’événement
+                if (mobileLink && !mobileLink.dataset.listenerAdded) {
+                    mobileLink.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const isShown = mobileSubmenu.classList.contains('show');
+                        const collapse = new bootstrap.Collapse(mobileSubmenu, {
+                            toggle: false
+                        });
+
+                        if (isShown) {
+                            collapse.hide();
+                        } else {
+                            collapse.show();
+                        }
+                    });
+
+                    mobileLink.dataset.listenerAdded = "true"; // évite les doublons
+                }
+            }
+
+            // Exécuter au chargement
+            initMobileMenuToggle();
+
+            // Ré-exécuter si la taille change (ex. resize orientation)
+            window.addEventListener('resize', initMobileMenuToggle);
+        });
+    </script>
+
+
+    <!-- script pour afficher la sous liste de Blogs (cas Desktop) -->
+    <script nonce="<%= nonce %>">
+        document.addEventListener('DOMContentLoaded', function () {
+            const desktopLink = document.getElementById('toggleBlogsDesktop');
+            const desktopSubmenu = document.getElementById('BlogsSubmenuDesktop');
+
+            desktopLink.addEventListener('click', function (e) {
+                e.preventDefault();
+                const isShown = desktopSubmenu.classList.contains('show');
+                const collapse = new bootstrap.Collapse(desktopSubmenu, {
+                    toggle: false
+                });
+
+                if (isShown) {
+                    collapse.hide();
+                } else {
+                    collapse.show();
+                }
+            });
+        });
+    </script>
+
+    <!-- script pour afficher la sous liste des blogs (cas Mobile) -->
+    <script nonce="<%= nonce %>">
+        document.addEventListener('DOMContentLoaded', function () {
+            function initMobileMenuToggle() {
+                const isMobile = window.matchMedia("(max-width: 768px)").matches;
+                if (!isMobile) return;
+
+                const mobileLink = document.getElementById('toggleBlogsMobile');
+                const mobileSubmenu = document.getElementById('BlogsSubmenuMobile');
+
+                // Empêche de ré-attacher plusieurs fois l’événement
+                if (mobileLink && !mobileLink.dataset.listenerAdded) {
+                    mobileLink.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const isShown = mobileSubmenu.classList.contains('show');
+                        const collapse = new bootstrap.Collapse(mobileSubmenu, {
+                            toggle: false
+                        });
+
+                        if (isShown) {
+                            collapse.hide();
+                        } else {
+                            collapse.show();
+                        }
+                    });
+
+                    mobileLink.dataset.listenerAdded = "true"; // évite les doublons
+                }
+            }
+
+            // Exécuter au chargement
+            initMobileMenuToggle();
+
+            // Ré-exécuter si la taille change (ex. resize orientation)
+            window.addEventListener('resize', initMobileMenuToggle);
+        });
+    </script>
+
+   <!-- script pour afficher la sous liste de Testimonials (cas Desktop) -->
+   <script nonce="<%= nonce %>">
+    document.addEventListener('DOMContentLoaded', function () {
+        const desktopLink = document.getElementById('toggleTestimonialsDesktop');
+        const desktopSubmenu = document.getElementById('TestimonialsSubmenuDesktop');
+
+        desktopLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            const isShown = desktopSubmenu.classList.contains('show');
+            const collapse = new bootstrap.Collapse(desktopSubmenu, {
+                toggle: false
+            });
+
+            if (isShown) {
+                collapse.hide();
+            } else {
+                collapse.show();
+            }
+        });
+    });
+   </script>
+
+    <!-- script pour afficher la sous liste des Testimonials (cas Mobile) -->
+    <script nonce="<%= nonce %>">
+        document.addEventListener('DOMContentLoaded', function () {
+            function initMobileMenuToggle() {
+                const isMobile = window.matchMedia("(max-width: 768px)").matches;
+                if (!isMobile) return;
+
+                const mobileLink = document.getElementById('toggleTestimonialsMobile');
+                const mobileSubmenu = document.getElementById('TestimonialsSubmenuMobile');
+
+                // Empêche de ré-attacher plusieurs fois l’événement
+                if (mobileLink && !mobileLink.dataset.listenerAdded) {
+                    mobileLink.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const isShown = mobileSubmenu.classList.contains('show');
+                        const collapse = new bootstrap.Collapse(mobileSubmenu, {
+                            toggle: false
+                        });
+
+                        if (isShown) {
+                            collapse.hide();
+                        } else {
+                            collapse.show();
+                        }
+                    });
+
+                    mobileLink.dataset.listenerAdded = "true"; // évite les doublons
+                }
+            }
+
+            // Exécuter au chargement
+            initMobileMenuToggle();
+
+            // Ré-exécuter si la taille change (ex. resize orientation)
+            window.addEventListener('resize', initMobileMenuToggle);
+        });
+    </script>
+
+    <!-- Script pour gérer le focus lors de la fermeture(cancel) de la modale de details de message de contact
+    (enlever l'erreur qui apprait aprés la fermuture de fenetre de details de message de contact) -->
+    <script nonce="<%= nonce %>">
+        document.addEventListener("DOMContentLoaded", function () {
+            const contactDetailsModal = document.getElementById("contactDetailsModal");
+            const closeButton = contactDetailsModal.querySelector(".btn-close");
+            const openModalBtns = document.querySelectorAll('[data-bs-target="#contactDetailsModal"]');
+
+            let lastClickedOpenBtn = null;
+
+            // Enregistrer le bouton qui a ouvert la modale
+            openModalBtns.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    lastClickedOpenBtn = btn;
+                });
+            });
+
+            // Avant que la modale soit masquée, déplacer le focus ailleurs (évite l’erreur aria-hidden)
+            contactDetailsModal.addEventListener("hide.bs.modal", function () {
+                // Si un élément à l’intérieur de la modale est encore focusé
+                if (contactDetailsModal.contains(document.activeElement)) {
+                    // Déplace le focus temporairement sur le body
+                    document.activeElement.blur();
+                    document.body.focus();
+                }
+            });
+
+            // Après la fermeture complète : remettre le focus sur le bouton qui a ouvert
+            contactDetailsModal.addEventListener("hidden.bs.modal", function () {
+                if (lastClickedOpenBtn) {
+                    lastClickedOpenBtn.focus();
+                }
+            });
+        });
+    </script>
+
+
+
+    <!-- Script pour gérer le focus lors de la fermeture(cancel) de la modale de supprimer le message de contact
+    (enlever l'erreur qui apprait aprés la fermuture de fenetre de supprimer un message de contact) -->
+
+   <script nonce="<%= nonce %>">
+document.addEventListener("DOMContentLoaded", function () {
+    const confirmDeleteModal = document.getElementById("confirmDeleteModal");
+    const openDeleteBtns = document.querySelectorAll(".btn-delete");
+
+    let lastClickedDeleteBtn = null;
+
+    // Mémoriser le bouton qui ouvre la modale
+    openDeleteBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            lastClickedDeleteBtn = btn;
+        });
+    });
+
+    // Avant que la modale soit cachée, retirer le focus si un élément à l’intérieur est focusé
+    confirmDeleteModal.addEventListener("hide.bs.modal", function () {
+        const active = document.activeElement;
+        if (confirmDeleteModal.contains(active)) {
+            active.blur();
+            document.body.focus(); // Focus neutre, empêche aria-hidden sur un élément focusé
+        }
+    });
+
+    // Après la fermeture complète, remettre le focus sur le bouton qui a ouvert la modale
+    confirmDeleteModal.addEventListener("hidden.bs.modal", function () {
+        if (lastClickedDeleteBtn) {
+            lastClickedDeleteBtn.focus();
+        }
+    });
+});
+   </script>
+
+
+
+    <!-- script pour envoyer la suppression de message de contact -->
+   <script nonce="<%= nonce %>">
+    document.addEventListener('DOMContentLoaded', () => {
+        let selectedContactId = null;
+        let lastClickedDeleteBtn = null;
+
+        const deleteErrorBox = document.getElementById('deleteErrorMessage');
+        const confirmDeleteModalEl = document.getElementById('confirmDeleteModal');
+        const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+        const confirmDeleteModal = new bootstrap.Modal(confirmDeleteModalEl);
+
+        // Boutons de suppression
+        document.querySelectorAll('.btn-delete').forEach(button => {
+            button.addEventListener('click', () => {
+                const row = button.closest('tr');
+                const contact = JSON.parse(row.getAttribute('data-contact'));
+                selectedContactId = contact._id;
+                lastClickedDeleteBtn = button;
+
+                // Réinitialiser le message d'erreur
+                deleteErrorBox.classList.add('d-none');
+                deleteErrorBox.textContent = '';
+
+                confirmDeleteModal.show();
+            });
+        });
+
+        // Sécurité focus : avant fermeture
+        confirmDeleteModalEl.addEventListener("hide.bs.modal", () => {
+            const active = document.activeElement;
+            if (confirmDeleteModalEl.contains(active)) {
+                active.blur();
+                document.body.focus();
+            }
+        });
+
+        // Remettre le focus après fermeture
+        confirmDeleteModalEl.addEventListener("hidden.bs.modal", () => {
+            if (lastClickedDeleteBtn) {
+                lastClickedDeleteBtn.focus();
+            }
+        });
+
+        // Bouton "Yes, Delete"
+        confirmDeleteBtn.addEventListener('click', () => {
+            if (!selectedContactId) return;
+
+            fetch(`/ContactMessages/delete/${selectedContactId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'CSRF-Token': '<%= csrfToken %>'
+                }
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.redirectTo) {
+                    window.location.href = data.redirectTo;
+                    return;
+                }
+
+                if (data.success) {
+                    confirmDeleteModal.hide();
+
+                    // Affiche l'alerte seulement après fermeture de la modale
+                    confirmDeleteModalEl.addEventListener('hidden.bs.modal', () => {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Deleted!',
+                            text: data.message
+                        }).then(() => {
+                            location.reload();
+                        });
+                    }, { once: true });
+                } else {
+                    deleteErrorBox.textContent = data.message || 'An unknown error occurred.';
+                    deleteErrorBox.classList.remove('d-none');
+                }
+            })
+            .catch(() => {
+                deleteErrorBox.textContent = 'An error occurred. Please try again.';
+                deleteErrorBox.classList.remove('d-none');
+            });
+        });
+    });
+    </script>
+
+    <!-- script qui détecet automatiquement la langue récupérer depuis la bd et faire l'alignemet du texte 
+      selon la langue -->
+	<script nonce="<%= nonce %>">
+		// Fonction réutilisable
+		function applyLanguageDirection() {
+			function isArabic(text) {
+				return /[\u0600-\u06FF]/.test(text);
+			}
+
+			document.querySelectorAll('.dynamic-text').forEach(el => {
+				const text = el.textContent.trim();
+				if (isArabic(text)) {
+					el.style.direction = 'rtl';
+					el.style.textAlign = 'right';
+					el.lang = 'ar';
+					el.style.fontFamily = "'Arial', 'Tahoma', sans-serif";
+				} else {
+					el.style.direction = 'ltr';
+					el.style.textAlign = 'left';
+					el.lang = 'fr';
+				}
+			});
+		}
+
+		document.addEventListener('DOMContentLoaded', applyLanguageDirection);
+	</script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <% if (message) { %>
+        <script nonce="<%= nonce %>">
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: "<%= message %>",
+                confirmButtonText: 'OK'
+            });
+        </script>
+        <% } %>
+
+
+</body>
+
+</html>

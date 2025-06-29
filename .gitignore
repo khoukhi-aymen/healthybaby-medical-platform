@@ -1,0 +1,12 @@
+# Node modules
+node_modules/
+
+# Fichiers d'environnement
+.env
+
+
+# Dossiers de test (optionnel)
+test/
+
+# VSCode config
+.vscode/
